@@ -1,14 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+const headers = { 'Content-Type': 'application/json' };
 
 export default () => {
     const [tasks, setTasks] = useState({});
+    
     const fetchTasks = async () => {
-        const res = await axios.get('http://localhost:4000/posts',{
-        userId: "123"
-    });
-    setTasks(res.data);
+        const res = await axios.get('http://localhost:4000/api/v1/123/tasks/', 
+        { headers } 
+      );
+      setTasks(res.data);
     };
     useEffect(() => {
         fetchTasks();
@@ -18,7 +20,7 @@ export default () => {
         style={{ width: '30%', marginBottom: '20px' }}
         key={task.id}>
             <div className='card-body'>
-                <h3>{task.title}</h3>
+                <h3>{task.content}</h3>
             </div>
         </div>;
     })

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, { useState } from 'react';
 import axios from 'axios';
+const headers = { 'Content-Type': 'application/json' };
 
 export default () => {
     const [content, setContent] = useState('');
@@ -8,10 +9,9 @@ export default () => {
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        await axios.post('http://localhost:4000/api/v1/tasks', {
-            userId: "123",
+        await axios.post('http://localhost:4000/api/v1/123/tasks/', {
             content
-        });
+        }, { headers });
 
         setContent('');
     };
@@ -19,7 +19,7 @@ export default () => {
       <div>
         <form onSubmit={onSubmit}>
             <div className="form-group">
-                <label>Content </label>
+                <label>What needs to be done? </label>
                 <input value={content} 
                 onChange={e => setContent(e.target.value)} 
                 className="form-control" />
