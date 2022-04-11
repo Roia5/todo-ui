@@ -7,7 +7,7 @@ export default () => {
     const [tasks, setTasks] = useState({});
     
     const fetchTasks = async () => {
-        const res = await axios.get('http://localhost:4000/api/v1/123/tasks/', 
+        const res = await axios.get('tasks-service:8080/api/v1/123/tasks/', 
         { headers } 
       );
       setTasks(res.data);
@@ -20,7 +20,7 @@ export default () => {
         style={{ width: '30%', marginBottom: '20px' }}
         key={task.id}>
             <div className='card-body'>
-                <h3>{task.content}</h3>
+                <h4>{task.content}</h4>
             </div>
         </div>;
     })
