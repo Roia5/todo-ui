@@ -7,7 +7,7 @@ export default () => {
     const [tasks, setTasks] = useState({});
     
     const fetchTasks = async () => {
-        const res = await axios.get('todo-tasks-service:80/api/v1/123/tasks/', 
+        const res = await axios.get('todo-tasks-service:3000/api/v1/123/tasks/', 
         { headers } 
       );
       setTasks(res.data);
