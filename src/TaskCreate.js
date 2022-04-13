@@ -9,7 +9,7 @@ export default () => {
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        await axios.post('todo-tasks-service:8080/api/v1/123/tasks/', {
+        await axios.post('todo-tasks-service:80/api/v1/123/tasks/', {
             content
         }, { headers });
 
