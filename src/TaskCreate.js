@@ -8,7 +8,6 @@ export default () => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-
         await axios.post('todo-tasks-service:3000/api/v1/123/tasks/', {
             content
         }, { headers });
@@ -19,7 +18,7 @@ export default () => {
       <div>
         <form onSubmit={onSubmit}>
             <div className="form-group">
-                <label>What needs to be done? </label>
+                <label>What needs to be done?</label>
                 <input value={content} 
                 onChange={e => setContent(e.target.value)} 
                 className="form-control" />
